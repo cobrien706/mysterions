@@ -16,10 +16,9 @@ release = '1.0.0'
 
 import os
 import sys
+import pygame
 
 sys.path.insert(0, os.path.abspath('../src'))
-sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../..'))
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode']
 
