@@ -1,4 +1,4 @@
-mysterions module
+mysterions
 =================
 
 .. automodule:: mysterions
