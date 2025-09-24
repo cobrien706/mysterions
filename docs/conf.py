@@ -16,7 +16,6 @@ release = '1.0.0'
 
 import os
 import sys
-import pygame
 
 sys.path.insert(0, os.path.abspath('../src'))
 
