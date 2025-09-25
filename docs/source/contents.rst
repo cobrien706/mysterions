@@ -1,7 +1,7 @@
 mysterions
 =================
 
-.. automodule:: contents
+.. automodule:: mysterions
    :members:
    :show-inheritance:
    :undoc-members:
