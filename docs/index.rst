@@ -15,5 +15,5 @@ mysterions
    :maxdepth: 2
    :caption: Contents:
 
-   mysterions
+   source/mysterions
 
