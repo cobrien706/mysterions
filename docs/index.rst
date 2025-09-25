@@ -4,11 +4,9 @@
    contain the root `toctree` directive.
 
 mysterions
-========================
+=================
 
-.. Add your content using ``reStructuredText`` syntax. See the
-  `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-  documentation for details.
-
-   source/mysterions
-
+.. automodule:: mysterions
+   :members:
+   :show-inheritance:
+   :undoc-members:
