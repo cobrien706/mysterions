@@ -41,7 +41,7 @@ Other modules (`random`,`threading`,`time`) should be in the standard library.
 
 # Monster Behavior
 
-
+![mysterion_strategy_in_a_nutshell](https://github.com/user-attachments/assets/148614d5-3954-4d1a-94e8-d54f097cde79)
 
 All the monsters follow the same basic strategy in pursing the player and navigating the board:
 
