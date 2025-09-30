@@ -733,7 +733,7 @@ class Button():
 
         elif self.text == "Continue":
             status["run"] = True
-            player.round = 1
+            # player.round = 1
             player.life = constants.GAME_PLAYER_LIFE_COUNT_START
             player.health = constants.GAME_PLAYER_HEALTH_MAX
             player.round_sync()
