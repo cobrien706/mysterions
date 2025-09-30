@@ -9,9 +9,13 @@ The goal of this project was to fulfill the assignment, but also to try to creat
 
 # Description
 
-The project is a relatively simple Python game kept to one script using PyGame. At each round the playing field is randomly populated with obstacles to navigate around ('Doors', although in this case they don't open), coins to be collected for points, monsters to be avoided, and a robot, which is the player.
+The project is a relatively simple Python game kept to one script using PyGame. At each round the playing field is randomly populated with obstacles to navigate around, coins to be collected for points, monsters to be avoided, and a robot, which is the player.
 
-Game play is almost self-explanitory with no intentional surprises. 
+# Gameplay
+
+<<img width="977" height="852" alt="mysterions_game_board_example" src="https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82" />
+
+Gameplay is almost self-explanitory with no intentional surprises. 
 - The player starts with a health level of 100% and 3 lives.
 - Player gets a momentary head start (three seconds OOTB) before the monsters start moving. This time allows the user to locate their character and get away from monsters in close proximity.
 - Player navigates the board by holding down the arrow keys (LEFT ⬅️, RIGHT ➡️, UP ⬆️, DOWN ⬇️) (LRUD) for the corresponding direction. Keys can be combined (e.g. hold down UP and LEFT at the same time) to move diagonally.
@@ -29,6 +33,15 @@ That's it. No boss fights, no transition screens, no pausing, no leader board, n
 Whether the game is *fun* as-is is of course subjective. But the number of monsters, coins and obstacles, and their placement, randomly changes from round to round, gameplay can go from 'That's easy!' to 'Oh... oh no... 👀' unexpectedly.
 
 # Installation
+The game requires [PyGame](https://www.pygame.org).  
+Other modules (`random`,`threading`,`time`) should be in the standard library.
+
+    pip install -r requirements.txt 
+    python mysterions.py 
+
+# Monster Behavior
 
 
+
+All the monsters follow the same basic strategy in pursing the player and navigating the board:
 
