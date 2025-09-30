@@ -9,25 +9,26 @@ The goal of this project was to fulfill the assignment, but also to try to creat
 
 # Description
 
-The project is a relatively simple Python game kept to once script file based on PyGame. At each round the playing field is randomly populated with obstacles to navigate around ('Doors', although in this case they don't open), coins to be collected for points, monsters to be avoided, and a robot, which is the player.
+The project is a relatively simple Python game kept to one script using PyGame. At each round the playing field is randomly populated with obstacles to navigate around ('Doors', although in this case they don't open), coins to be collected for points, monsters to be avoided, and a robot, which is the player.
 
-Game play is almost self-explanitory with no surprises. 
+Game play is almost self-explanitory with no intentional surprises. 
 - The player starts with a health level of 100% and 3 lives.
-- Player navigates on the board holding down the arrow keys (⬆️⬇️⬅️➡️) for the correspoding direction. Keys can be combined (e.g. hold down UP and LEFT at the same time) to move diagonally.
+- Player gets a momentary head start (three seconds OOTB) before the monsters start moving. This time allows the user to locate their character and get away from monsters in close proximity.
+- Player navigates the board by holding down the arrow keys (LEFT ⬅️, RIGHT ➡️, UP ⬆️, DOWN ⬇️) (LRUD) for the corresponding direction. Keys can be combined (e.g. hold down UP and LEFT at the same time) to move diagonally.
 - The player navigates through the board to collect coins, earing 100 points a coin, while the monsters on the board pursue the player.
 - If the player contacts a monster, the player's health drops 20% and the monster disappears.
-- A round ends when either all the coins are collected or health declines to zero.
+- A round ends when either all the coins on the board are collected or health declines to zero.
 - If the player collects all the coins, they are awarded an additional life (to a maximum of five.)
-- If the player's health reaches zero before all the coins are collected, they lose a life. If the player loses all their lives, the game ends.
-- At game end, player has the option of continuing the game (essentialy they start a new game but continue adding to their score), start a new game, or quit.
+- If the player's health reaches zero before all the coins are collected, they lose a life. If the player loses all of their lives, the game ends.
+- At the game's end, player has the option of continuing the game (three more lives, start a new round, keep the current score), start a new game, or quit.
 
 As configured OOTB, the player moves twice as fast as the monsters and can move in all directions. Monsters can only move left, right, up, or down for any particular stretch of movement. (They can only move diagonally once they are close to the player.)
 
 That's it. No boss fights, no transition screens, no pausing, no leader board, not even sound effects.
 
-Whether the game is *fun* as-s is of course subjective. But the number of monsters, coins and obstacles, and their placement, randomly changes from round to round, gameplay can go from 'That's easy!' to 'Oh dear lord, no.' unexpectedly.
+Whether the game is *fun* as-is is of course subjective. But the number of monsters, coins and obstacles, and their placement, randomly changes from round to round, gameplay can go from 'That's easy!' to 'Oh... oh no... 👀' unexpectedly.
 
-
+# Installation
 
 
 
