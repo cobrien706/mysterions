@@ -470,8 +470,12 @@ class Monster(Moving):
                       (self.velocity * direction[1])]
 
         # Otherwise go in a straight direction, either left/right or up/down.
+
+        # If both abs(diff[0]) and abs(diff[1]) are above threshhold, Monster goes L/R before going U/D
+
         elif abs(difference[0]) >= constants.MONSTER_CHARGE_DIRECT_THRESHOLD:
             change = [(self.velocity * direction[0]), 0]
+
         elif abs(difference[1]) >= constants.MONSTER_CHARGE_DIRECT_THRESHOLD:
             change = [0, (self.velocity * direction[1])]
 
