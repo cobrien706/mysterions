@@ -334,7 +334,6 @@ class Monster(Moving):
             the maneuver is repeated. If the maneuver completes and the way is clear,
             the maneuver is changed to :func:`charge`.
             """
-            # print(cmd, self.this_monster.finex, self.this_monster.finey)
             # If there's a collision, start a new knight move at the first stage.
             if cmd == "start":
                 self.knight_moves_stage = "first"
@@ -471,7 +470,6 @@ class Monster(Moving):
                       (self.velocity * direction[1])]
 
         # Otherwise go in a straight direction, either left/right or up/down.
-
         # If both abs(diff[0]) and abs(diff[1]) are above threshhold, Monster goes L/R before going U/D
 
         elif abs(difference[0]) >= constants.MONSTER_CHARGE_DIRECT_THRESHOLD:
@@ -517,7 +515,6 @@ class Monster(Moving):
         and checks if the applied maneuver is continuing or
         completed. Finally applies the vector change to the :class:`Monster`.
         """
-        print("move - maneeuver is", self.maneuver)
         change = [0.0, 0.0]
         if monsters_are_go:
             if self.maneuver == "charge":
@@ -528,7 +525,7 @@ class Monster(Moving):
         # Adds wobble effect to the Monster's movement
         # Adjust the velocity value, rng value to change the effect.
         # Just comment this out to remove the effect.
-        # change = self.wobble(change, self.velocity, constants.MONSTER_WOBBLE_RNG)
+        change = self.wobble(change, self.velocity, constants.MONSTER_WOBBLE_RNG)
 
         # With this change does the Monster collide with anything?
         collision = self.is_collision(things, change, window)
@@ -555,18 +552,9 @@ class Monster(Moving):
                         self.straight.knight_moves("next")
                     # Else if we've completed going the second direction.
                     elif self.straight.knight_moves() == "second":
-                        # Find what's the clearest way to go and how far, and is there anything in the way?
-#                        (best, clear) = self.best_direction(things, window)
-                        # If nothing's in the way, charge after the robot.
-#                        if clear:
+                        # Finish the knight move, try charging again.
                             self.straight.knight_moves("finish")
                             self.maneuver = "charge"
-#                            print("knight_moves finished, switch to charge")
-                        # else:
-                        #     self.straight.knight_moves("start", best)
-                        #     # Erase the change.
-                        #     change = [0.0, 0.0]
-                        #     print("not clear, restart knight_moves")
                 # But if the run's not completed, keep going.
                 else:
                     # Increment the move count by one.
@@ -862,7 +850,7 @@ class Game:
         objcount["coin"] = randrange(constants.COIN_RANDRANGE[0], constants.COIN_RANDRANGE[1])
         objcount["door"] = randrange(constants.DOOR_RANDRANGE[0], constants.DOOR_RANDRANGE[1])
         objcount["monster"] = randrange(constants.MONSTER_RANDRANGE[0], constants.MONSTER_RANDRANGE[1])
-        # objcount["monster"] = 1
+        # objcount["monster"] = 1  # test with a single monster
         # Get the size of the grid.
         grid_size = self.start_grid_size_x * self.start_grid_size_y
         # Create a list of sequential digits that's randomized
@@ -1042,4 +1030,3 @@ class Game:
 
 if __name__ == "__main__":
     Mysterions()
-
