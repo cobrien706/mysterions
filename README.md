@@ -71,7 +71,14 @@ The direction (x, y) is multiplied by the Monster's velocity to make the change 
 
 If the Monster during a *charge* determines the direction it is going will result in collision with an obstacle *(is_collision)*, the strategy is changed to *knight_moves*.
 
-*knight_moves* has multiple stages. First *best_direction* determines which direction (LRUD) offers the greatest distance before an obstacle is encountered.
+*knight_moves* has multiple stages. 
+0. During *move*, the upcoming change in position results in *is_collision* returning true. We need to change direction.
+1. To determine the best way to go, *best_direction* determines which direction (LRUD) has the most clearence, and returns the direction and the distance available.
+2. *knight_moves* stage is changed to 'start'.
+3. The *straight* maneuver is applied, and the Monster goes in the best direction for part of the distance, currently set for half the available distance. *knight_moves* stage is changed to 'first'.
+4. 
+
+First *best_direction* determines which direction (LRUD) offers the greatest distance before an obstacle is encountered.
 This is used to begin the first *straight* maneuver, going in this direction for a portion of the available distance, currently one-half.
 Once completed, *random_turn* sets the next *straight* maneuver, which is either a left or right turn from the first direction, for a random distance.
 If the second *straight* maneuver completes 
