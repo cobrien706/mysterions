@@ -15,11 +15,11 @@ The project is a relatively simple Python game kept to one script using PyGame. 
 
 <<img width="977" height="852" alt="mysterions_game_board_example" src="https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82" />
 
-Gameplay is almost self-explanitory with no intentional surprises. 
+Gameplay is almost self-explanatory with no intentional surprises. 
 - The player starts with a health level of 100% and 3 lives.
-- Player gets a momentary head start (three seconds OOTB) before the monsters start moving. This time allows the user to locate their character and get away from monsters in close proximity.
-- Player navigates the board by holding down the arrow keys (LEFT ⬅️, RIGHT ➡️, UP ⬆️, DOWN ⬇️) (LRUD) for the corresponding direction. Keys can be combined (e.g. hold down UP and LEFT at the same time) to move diagonally.
-- The player navigates through the board to collect coins, earing 100 points a coin, while the monsters on the board pursue the player.
+- The player gets a momentary head start (three seconds OOTB) before the monsters start moving. This time allows the user to locate their character and get away from monsters in close proximity.
+- The player navigates the board by holding down the arrow keys (LEFT ⬅️, RIGHT ➡️, UP ⬆️, DOWN ⬇️) (LRUD) for the corresponding direction. Keys can be combined (e.g. hold down UP and LEFT at the same time) to move diagonally.
+- The player navigates through the board to collect coins, earning 100 points a coin, while the monsters on the board pursue the player.
 - If the player contacts a monster, the player's health drops 20% and the monster disappears.
 - A round ends when either all the coins on the board are collected or health declines to zero.
 - If the player collects all the coins, they are awarded an additional life (to a maximum of five.)
@@ -73,12 +73,12 @@ If the Monster during a *charge* determines the direction it is going will resul
 
 *knight_moves* has multiple stages. 
 0. During *move*, the upcoming change in position results in *is_collision* returning true. We need to change direction.
-1. To determine the best way to go, *best_direction* determines which direction (LRUD) has the most clearence, and returns the direction and the distance available.
+1. To determine the best way to go, *best_direction* determines which direction (LRUD) has the most clearance, and returns the direction and the distance available.
 2. *knight_moves* stage is changed to 'start'.
 3. The *straight* maneuver is applied, and the Monster goes in the best direction for part of the distance, currently set for half the available distance. *knight_moves* stage is changed to 'first'.
-4. 
+4. When the *straight* maneuver is completed, *knight_moves* stage is changed to 'next'. *random_turn* calculates a direction and distance perpendicular to the first *straight* maneuver for a random distance.
+5. *knight_moves* stage is changed to 'second' and the second *straight* maneuver for the random turn is applied.
+6. When the second *straight* maneuver is completed, *knight_moves* stage is changed to 'finish'.
+7. The maneuver returns to *charge*.
 
-First *best_direction* determines which direction (LRUD) offers the greatest distance before an obstacle is encountered.
-This is used to begin the first *straight* maneuver, going in this direction for a portion of the available distance, currently one-half.
-Once completed, *random_turn* sets the next *straight* maneuver, which is either a left or right turn from the first direction, for a random distance.
-If the second *straight* maneuver completes 
+The second *straight* from the *random_turn* can result in another collision. In this event, a whole new *knight_moves* maneuver begins. This can occur more than once until a *knight_moves* finishes.
