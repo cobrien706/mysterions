@@ -13,7 +13,8 @@ The project is a relatively simple Python game kept to one script using PyGame. 
 
 # Gameplay
 
-<<img width="977" height="852" alt="mysterions_game_board_example" src="https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82" />
+<<img width="977" height="852" alt="A screenprint from the game showing an example of the layout of the obstacles, coins, monsters, and the player, a robot. Also shows the scoreboard displaying the current round, life, health, and points." src="https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82" />
+
 
 Gameplay is almost self-explanatory with no intentional surprises. 
 - The player starts with a health level of 100% and 3 lives.
@@ -86,4 +87,10 @@ The second *straight* from the *random_turn* can result in another collision. In
 
 ## Potential changes
 
-One issue with *knight_moves* is that is puts the Monster into zombie mode, unaware of the player Robot's position. The Robot can move past the Monster without risk as long as it doesn't collide with the Monster by accident. We can explore including the Robot's position as part of the *straight* maneuver and have the Monster revert to *charge* if the Robot's distance from the Monster falls beneath a threshold. This would naturally make the game more difficult. If you were developing a more complex game where later rounds are more difficult, this feature could be held off until those rounds.
+One issue with *knight_moves* is that is puts the Monster into zombie mode, unaware of the player Robot's position. The Robot can move past the Monster without risk as long as it doesn't collide with the Monster by accident. We can explore including the Robot's position as part of the *straight* maneuver and have the Monster revert to *charge* if the Robot's distance from the Monster falls beneath a threshold. This would naturally make the game more difficult, and could be held off for later rounds.
+
+# Credits
+
+The sprites used in the game are from the [Python Programming MOOC 2025](https://programming-25.mooc.fi/credits/) course and is under Creative Commons license.
+
+The Arcade font is Copyright (C)1997-2003 Yuji Adachi (https://www.9031.com/). See [ARCADE_TTF_Readme_UTF8.txt](ARCADE_TTF_Readme_UTF8.txt)
