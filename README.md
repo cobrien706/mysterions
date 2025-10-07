@@ -5,7 +5,7 @@
 This is a demo game for the [final assignment](https://programming-25.mooc.fi/part-14/4-your-own-game) for the  
 [University of Helsinki MOOC Center](https://www.mooc.fi/en/) online course [Python Programming MOOC 2025](https://programming-25.mooc.fi/).
 
-The goal of this project was to fulfill the assignment, but also to try to create code that could be readily modified, maintained and improved upon by other developers, to better familiarize myself with better techniques, writing 'pythonic' code, and creating as solid documentation as possible, using resources such as Sphinx and Read the Docs.
+The goal of this project was to fulfill the assignment, but also to try to create code that could be readily modified, maintained and improved upon by other developers, to familiarize myself with better techniques, writing 'pythonic' code, and creating as solid documentation as possible, using resources such as Sphinx and Read the Docs.
 
 # Description
 
@@ -24,13 +24,13 @@ Gameplay is almost self-explanatory with no intentional surprises.
 - A round ends when either all the coins on the board are collected or health declines to zero.
 - If the player collects all the coins, they are awarded an additional life (to a maximum of five.)
 - If the player's health reaches zero before all the coins are collected, they lose a life. If the player loses all of their lives, the game ends.
-- At the game's end, player has the option of continuing the game (three more lives, start a new round, keep the current score), start a new game, or quit.
+- At the game's end, the player has the option of continuing the game (three more lives, start a new round, keep the current score), start a new game, or quit.
 
 As configured OOTB, the player moves twice as fast as the monsters and can move in all directions. Monsters can only move left, right, up, or down for any particular stretch of movement. (They can only move diagonally once they are close to the player.)
 
-That's it. No boss fights, no transition screens, no pausing, no leader board, not even sound effects.
+That's it. No boss fights, no transition screens, no pausing, no leaderboard, not even sound effects.
 
-Whether the game is *fun* as-is is of course subjective. But the number of monsters, coins and obstacles, and their placement, randomly changes from round to round, gameplay can go from 'That's easy!' to 'Oh... oh no... 👀' unexpectedly.
+Whether the game is *fun* as-is is of course subjective. But the number of monsters, coins and obstacles, and their placement, randomly changes from round to round, and gameplay can go from 'That's easy!' to 'Oh... oh no... 👀' unexpectedly.
 
 # Installation
 The game requires [PyGame](https://www.pygame.org).  
@@ -43,7 +43,7 @@ Other modules (`random`,`threading`,`time`) should be in the standard library.
 
 ![mysterion_strategy_in_a_nutshell](https://github.com/user-attachments/assets/148614d5-3954-4d1a-94e8-d54f097cde79)
 
-All the monsters follow the same set of strategies in pursing the player and navigating the board.
+All the monsters follow the same set of strategies in pursuing the player and navigating the board.
 
 ## charge
 
@@ -67,13 +67,14 @@ The direction (x, y) is multiplied by the Monster's velocity to make the change 
 
 ## knight_moves
 
-<img width="851" height="538" alt="monster_knight_moves_sample_edit" src="https://github.com/user-attachments/assets/249ccbcd-4958-408c-bf09-7e56f60afc8b" />
+<img width="856" height="538" alt="monster_knight_moves_sample_edit(1)" src="https://github.com/user-attachments/assets/7d6277a7-bb7f-454b-a1c1-92d7088e7503" />
 
 If the Monster during a *charge* determines the direction it is going will result in collision with an obstacle *(is_collision)*, the strategy is changed to *knight_moves*.
 
 *knight_moves* has multiple stages. 
-0. During *move*, the upcoming change in position results in *is_collision* returning true. We need to change direction.
-1. To determine the best way to go, *best_direction* determines which direction (LRUD) has the most clearance, and returns the direction and the distance available.
+
+0. During *move*, the upcoming change in position results in *is_collision* returning true. The monster needs to change direction.
+1. To find the best way to go, *best_direction* determines which direction (LRUD) has the most clearance, and returns the direction and the distance available.
 2. *knight_moves* stage is changed to 'start'.
 3. The *straight* maneuver is applied, and the Monster goes in the best direction for part of the distance, currently set for half the available distance. *knight_moves* stage is changed to 'first'.
 4. When the *straight* maneuver is completed, *knight_moves* stage is changed to 'next'. *random_turn* calculates a direction and distance perpendicular to the first *straight* maneuver for a random distance.
@@ -82,3 +83,7 @@ If the Monster during a *charge* determines the direction it is going will resul
 7. The maneuver returns to *charge*.
 
 The second *straight* from the *random_turn* can result in another collision. In this event, a whole new *knight_moves* maneuver begins. This can occur more than once until a *knight_moves* finishes.
+
+## Potential changes
+
+One issue with *knight_moves* is that is puts the Monster into zombie mode, unaware of the player Robot's position. The Robot can move past the Monster without risk as long as it doesn't collide with the Monster by accident. We can explore including the Robot's position as part of the *straight* maneuver and have the Monster revert to *charge* if the Robot's distance from the Monster falls beneath a threshold. This would naturally make the game more difficult. If you were developing a more complex game where later rounds are more difficult, this feature could be held off until those rounds.
