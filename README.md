@@ -13,8 +13,7 @@ The project is a relatively simple Python game kept to one script using PyGame. 
 
 # Gameplay
 
-<<img width="977" height="852" alt="A screenprint from the game showing an example of the layout of the obstacles, coins, monsters, and the player, a robot. Also shows the scoreboard displaying the current round, life, health, and points." src="https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82" />
-
+![A screenprint from the game showing an example of the layout of the obstacles, coins, monsters, and the player, a robot. Also shows the scoreboard displaying the current round, life, health, and points.](https://github.com/user-attachments/assets/2570602c-9c9e-44f3-bfe1-9336c4393e82)
 
 Gameplay is almost self-explanatory with no intentional surprises. 
 - The player starts with a health level of 100% and 3 lives.
@@ -42,13 +41,14 @@ Other modules (`random`,`threading`,`time`) should be in the standard library.
 
 # Monster Behavior
 
-![mysterion_strategy_in_a_nutshell](https://github.com/user-attachments/assets/148614d5-3954-4d1a-94e8-d54f097cde79)
+![Humor - A scene from the film Better Off Dead that generally descibe Monster behavior.](https://github.com/user-attachments/assets/148614d5-3954-4d1a-94e8-d54f097cde79)  
+[source](https://www.youtube.com/watch?v=lEHZJNQ5Y4A)
 
 All the monsters follow the same set of strategies in pursuing the player and navigating the board.
 
 ## charge
 
-<img width="430" height="448" alt="monster_charge_sample_edit" src="https://github.com/user-attachments/assets/51ddebf5-a3ad-4a8a-8244-8d85f0c9dda6" />
+![A diagram of the charge strategy, showing an example of a Monster in relation to the Robot on the game board and their coordinates.](https://github.com/user-attachments/assets/51ddebf5-a3ad-4a8a-8244-8d85f0c9dda6)
 
 The initial strategy, and the one they always eventually go back to, is *charge*, where the Monster simply heads toward the Robot's current location.
 
@@ -68,7 +68,7 @@ The direction (x, y) is multiplied by the Monster's velocity to make the change 
 
 ## knight_moves
 
-<img width="856" height="538" alt="monster_knight_moves_sample_edit(1)" src="https://github.com/user-attachments/assets/7d6277a7-bb7f-454b-a1c1-92d7088e7503" />
+![A diagram of the knight_moves strategy, showing an example of a Monster navigating obstacles using the strategy and the multiple steps involved, with keyed callouts referencing the list of steps below.](https://github.com/user-attachments/assets/7d6277a7-bb7f-454b-a1c1-92d7088e7503)
 
 If the Monster during a *charge* determines the direction it is going will result in collision with an obstacle *(is_collision)*, the strategy is changed to *knight_moves*.
 
