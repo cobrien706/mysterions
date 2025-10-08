@@ -1,5 +1,7 @@
 # mysterions - An arcade-style action game - collect coins, get around obstacles, avoid monsters, try not to die.
 
+[Read the Docs page](https://mysterions.readthedocs.io/)
+
 # :robot:  :ghost::ghost::ghost:  :ghost:
 
 This is a demo game for the [final assignment](https://programming-25.mooc.fi/part-14/4-your-own-game) for the  
