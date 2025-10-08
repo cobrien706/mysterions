@@ -46,7 +46,7 @@ Other modules (`random`,`threading`,`time`) should be in the standard library.
 ![Humor - A scene from the film Better Off Dead that generally descibe Monster behavior.](https://github.com/user-attachments/assets/148614d5-3954-4d1a-94e8-d54f097cde79)  
 [source](https://www.youtube.com/watch?v=lEHZJNQ5Y4A)
 
-All the monsters follow the same set of strategies in pursuing the player and navigating the board.
+All the Monsters follow the same set of strategies in pursuing the player and navigating the board.
 
 ## charge
 
@@ -76,7 +76,7 @@ If the Monster during a *charge* determines the direction it is going will resul
 
 *knight_moves* has multiple stages. 
 
-0. During *move*, the upcoming change in position results in *is_collision* returning true. The monster needs to change direction.
+0. During *move*, the upcoming change in position results in *is_collision* returning true. The Monster needs to change direction.
 1. To find the best way to go, *best_direction* determines which direction (LRUD) has the most clearance, and returns the direction and the distance available.
 2. *knight_moves* stage is changed to 'start'.
 3. The *straight* maneuver is applied, and the Monster goes in the best direction for part of the distance, currently set for half the available distance. *knight_moves* stage is changed to 'first'.
